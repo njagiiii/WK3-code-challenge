@@ -44,17 +44,32 @@ fetch('http://localhost:3000/films')
 
           let  capacity = film.capacity
           let ticketsold = film.tickets_sold
+          let remainingtickets = capacity - ticketsold
 
-          const remainingtickets = document.createElement('p')
-          remainingtickets.innerText = `Available Tickets:${capacity - ticketsold}`;
-          remainingtickets.classList.add('tickets')
-          card.appendChild(remainingtickets)
+          const availabletickets = document.createElement('p')
+          availabletickets.innerText = `Available Tickets: ${remainingtickets}`;
+          availabletickets.classList.add('tickets')
+          card.appendChild(availabletickets)
+
+        
 
           const button = document.createElement('button')
            button.innerText = 'Buy'
            button.classList.add('btn')
            card.appendChild(button);
           
+           button.addEventListener('click', () => {
+               if(remainingtickets > 0){
+                remainingtickets--
+                availabletickets.innerText = `Available Tickets: ${remainingtickets}`;
+               }
+               else{
+                    
+                    button.disabled = true
+                    button.innerText ='Unavailable'
+                    button.style.backgroundColor = 'purple'
+               }
+           })
           
 
         moviecontainer.appendChild(card)

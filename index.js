@@ -8,7 +8,7 @@ let filmObj = {
   runtime: e.target.runtime.value,
   capacity: e.target.capacity.value,
   showtime: e.target.showtime.value,
-  tickets_sold:0,
+  tickets_sold:20,
   description: e.target.description.value,
   poster: e.target.poster.value
 };

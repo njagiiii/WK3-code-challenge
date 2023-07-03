@@ -46,14 +46,14 @@ nav a:hover{
 .card{
     float: left;
     width: 25%;
-    margin-top: 50px;
+    margin-top: 30px;
     
 }
 .card img{
     width: 300px;
     margin-left: 150px;
     border-radius: 30px;
-    margin-top: 100px;
+    margin-top: 50px;
     gap: 20px;
     
 }
@@ -98,6 +98,28 @@ nav a:hover{
 }
 .clear{
     clear: both;
+}
+
+#form{
+    padding-top: 150px;
+    background:linear-gradient(to top,#e6e9f0 0%, #eef1f5 100%);
+    
+}
+
+input{
+    display: block;
+    margin-left: 650px;
+   margin-bottom: 30px;
+   width: 30%;
+   height: 50px;
+   border-radius: 15px;
+}
+textarea{
+    margin-left: 650px;
+}
+::placeholder{
+    font-size: 25px;
+   
 }
 
 

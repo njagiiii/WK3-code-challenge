@@ -1,6 +1,20 @@
 
 const moviecontainer = document.getElementById('moviecontainer')
 
+document.getElementById('form').addEventListener('submit', (e) => {
+e.preventDefault();
+let filmObj = {
+  title: e.target.title.value,
+  runtime: e.target.runtime.value,
+  capacity: e.target.capacity.value,
+  showtime: e.target.showtime.value,
+  tickets_sold:0,
+  description: e.target.description.value,
+  poster: e.target.poster.value
+};
+postFilm(filmObj)
+})
+
 //fetch movie details from json server
 
 fetch('http://localhost:3000/films')
@@ -112,7 +126,17 @@ fetch('http://localhost:3000/films')
       movietitle.innerText = 'Batman'     
       movieposter.src = 'Batman.jpg'
   }
-
+function postFilm(filmObj){
+    fetch('http://localhost:3000/films' ,{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify (filmObj)
+    })
+    .then(res => res.json())
+    .then(datas => console.log(datas));
+  }
  
        
 

@@ -27,7 +27,7 @@ fetch('http://localhost:3000/films')
  .then(data => {
    
    //create an array of specific movie title i want to style
-    const findtitles = ['Time Chasers', 'The Skydivers', 'The Killer Shrews','Wild Rebels','Danger: Diabolik','Catalina Caper','Village Of The Giants','The Touch Of Satan','Project Moon Base'];
+    const findtitles = ['Time Chasers', 'The Skydivers', 'The Killer Shrews','Wild Rebels','Danger: Diabolik','Catalina Caper','Village Of The Giants','The Touch Of Satan','Project Moon Base','Prison break','money heist'];
 
     //map through each array element
 
@@ -86,6 +86,8 @@ fetch('http://localhost:3000/films')
                     button.style.backgroundColor = 'grey'
                     
                }
+              
+
            })
           
            //add an event listener to card

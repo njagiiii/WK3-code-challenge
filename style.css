@@ -93,6 +93,12 @@ nav a:hover{
     font-size: 28px;
     border-radius: 20px;
 }
+.card .moviettl{
+    margin-left: 200px;
+}
+.clear{
+    clear: both;
+}
 
 
 

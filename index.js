@@ -23,6 +23,7 @@ fetch('http://localhost:3000/films')
 
         const poster =document.createElement('img')
         poster.src = film.poster
+        poster.id = 'poster'
         card.appendChild(poster)
 
         const title = document.createElement('p')
@@ -30,6 +31,7 @@ fetch('http://localhost:3000/films')
           if ( findtitles.includes(film.title)){
             title.classList.add('titles')
           }
+          title.id ='title'
         card.appendChild(title)
 
         const runtime = document.createElement('p')
@@ -66,11 +68,26 @@ fetch('http://localhost:3000/films')
                else{
                     
                     button.disabled = true
-                    button.innerText ='Unavailable'
-                    button.style.backgroundColor = 'purple'
+                    button.innerText ='SoldOut'
+                    button.style.backgroundColor = 'grey'
+                    
                }
            })
           
+           //add an event listener to card
+           card.addEventListener ('click', (e) => {
+            fetch(`http://localhost:3000/films?title=${encodeURIComponent(title)}&poster=${encodeURIComponent(poster)}`)
+            .then (res => {
+              if(!res.ok){
+                throw new Error('Failed')
+              } 
+              return res.json()
+            })
+            .then(moviedata => {
+              newdetails(card)
+
+            })
+           })
 
         moviecontainer.appendChild(card)
     })
@@ -81,5 +98,23 @@ fetch('http://localhost:3000/films')
       
 
 .catch(error => console.log('error'))
+
+   //function that replaced the current details
+  function newdetails(card){
+
+    //get the current details
+      const movietitle = card.querySelector('#title')
+      movietitle.classList.add('moviettl')  
+      const movieposter = card.querySelector('#poster')
+
+      //new details
+
+      movietitle.innerText = 'Batman'     
+      movieposter.src = 'Batman.jpg'
+  }
+
+ 
+       
+
 
  
